@@ -10,7 +10,7 @@ export class Provider extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8080/items")
+      .get("http://localhost:8080/stations")
       .then((res) => this.setState({ items: res.data }));
   }
 

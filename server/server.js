@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
   // Request headers you wish to allow
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
+    "Origin, X-Requested-With, Content-Type,authorization,Accept"
   );
 
   // Set to true if you need the website to include cookies in the requests sent
