@@ -30,16 +30,22 @@ router.get("/", function (req, res) {
 
 // CREATE, READ, EDIT, DELETE functions
 
-// Get items
+// Get items from a table
+router.get("/:table", (req, res) => {
+  const table = req.params.table;
+  con.query(`SELECT * FROM ${table}`, function (error, results) {
+    if (error) throw error;
+    res.json(results);
+  });
+});
+
+// Add item to table
 //TODO
 
-// Add item
+// Update item in table
 //TODO
 
-// Update item
-//TODO
-
-// Delete item
+// Delete item from table
 //TODO
 
 module.exports = router;
