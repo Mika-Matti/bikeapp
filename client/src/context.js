@@ -5,13 +5,13 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    items: [],
+    journeys: [],
   };
 
   componentDidMount() {
     axios
-      .get("http://localhost:8080/stations")
-      .then((res) => this.setState({ items: res.data }));
+      .get("http://localhost:8080/journeys")
+      .then((res) => this.setState({ journeys: res.data }));
   }
 
   render() {

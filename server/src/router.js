@@ -33,7 +33,7 @@ router.get("/", function (req, res) {
 // Get items from a table
 router.get("/:table", (req, res) => {
   const table = req.params.table;
-  con.query(`SELECT * FROM ${table}`, function (error, results) {
+  con.query(`SELECT * FROM ${table} LIMIT 25`, function (error, results) {
     if (error) throw error;
     res.json(results);
   });

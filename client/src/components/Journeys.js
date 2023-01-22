@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import Itemnode from "./Itemnode";
+import Journeynode from "./Journeynode";
 
-export default class Items extends Component {
+export default class Journeys extends Component {
   constructor() {
     super();
     this.state = {
-      items: [
+      journeys: [
         {
-          item_id: 1,
-          item_name: "Item name",
-          item_desc: "Item description",
+          journey_id: 1,
+          departure_time: "",
+          return_time: "",
         },
       ],
     };
@@ -20,14 +20,14 @@ export default class Items extends Component {
     return (
       <Consumer>
         {(value) => {
-          const { items } = value;
+          const { journeys } = value;
           return (
             <div className="container">
               {/* header */}
               <h1 className="display-5 my-3 text-left">Journeys</h1>
               {/* item nodes */}
-              {items.map((item) => (
-                <Itemnode key={item.item_id} item={item} />
+              {journeys.map((journey) => (
+                <Journeynode key={journey.journey_id} journey={journey} />
               ))}
             </div>
           );
