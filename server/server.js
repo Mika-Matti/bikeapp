@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express().use(bodyParser.json());
-const router = require("./router");
+const router = require("./src/router");
 
 // ADD HEADERS
 app.use(function (req, res, next) {

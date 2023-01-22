@@ -1,14 +1,27 @@
 const express = require("express");
+const mysql = require("mysql");
 const router = express.Router();
 
 //Db tables and columns
 //TODO
 
 //DB Connection
-//TODO
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "bikeappDB",
+  multipleStatements: true,
+});
 
 //Connect to DB
-//TODO
+con.connect((err) => {
+  if (err) {
+    console.log("Error connecting to DB");
+    return;
+  }
+  console.log("DB Connection established");
+});
 
 // Default page
 router.get("/", function (req, res) {
