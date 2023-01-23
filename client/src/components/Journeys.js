@@ -80,6 +80,9 @@ export default class Journeys extends Component {
                   </button>
                 </div>
                 <div className="col">
+                  <b>{page + 1}</b>
+                </div>
+                <div className="col">
                   <button
                     type="button"
                     className="btn btn-dark"
