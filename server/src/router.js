@@ -43,7 +43,6 @@ router.get("/:table/page/:number", (req, res) => {
   const page = req.params.number;
   const limit = 25;
   const fromRow = page * limit;
-  console.log(table, page, limit, fromRow);
   con.query(
     `SELECT * FROM ${table} LIMIT ${fromRow},${limit}`,
     function (error, results) {
