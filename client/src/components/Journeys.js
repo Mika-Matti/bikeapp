@@ -31,7 +31,7 @@ export default class Journeys extends Component {
           const { page, journeys } = state;
 
           const { number } = this.props.match.params;
-          if (number != page + 1) {
+          if (Number(number) !== page + 1) {
             setPage(number - 1);
           }
 

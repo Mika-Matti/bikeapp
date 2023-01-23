@@ -49,7 +49,7 @@ export default class Journeynode extends Component {
           <Link
             type="button"
             className="btn btn-dark"
-            to={`journeys/${journey_id}`}
+            to={`/journeys/${journey_id}`}
           >
             Details
           </Link>

@@ -10,9 +10,8 @@ export class Provider extends Component {
   };
 
   setPage = (p) => {
-    const num = p < 0 ? 0 : p;
     axios
-      .get(`http://localhost:8080/journeys/page/${num}`)
+      .get(`http://localhost:8080/journeys/page/${p}`)
       .then((res) => this.setState({ page: p, journeys: res.data }));
   };
 
