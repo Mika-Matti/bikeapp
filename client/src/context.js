@@ -5,18 +5,20 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    page: 1,
+    page: 0,
     journeys: [],
   };
 
   setPage = (p) => {
-    console.log("moro");
-    this.setState({ page: p });
+    axios
+      .get(`http://localhost:8080/journeys/page/${p}`)
+      .then((res) => this.setState({ page: p, journeys: res.data }));
   };
 
+  //TODO fetch 25 journeys depending on page number.
   componentDidMount() {
     axios
-      .get("http://localhost:8080/journeys")
+      .get(`http://localhost:8080/journeys/page/0`)
       .then((res) => this.setState({ journeys: res.data }));
   }
 
