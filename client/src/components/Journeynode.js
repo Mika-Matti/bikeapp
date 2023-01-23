@@ -7,12 +7,15 @@ export default class Journeynode extends Component {
     const { journey_id, departure_time, return_time } = this.props.journey;
 
     return (
-      <div className="row mx-0 border-bottom pb-3 mb-3">
-        <div className="col-md-5 text-left">
-          <h3>{journey_id}</h3>
-          <p>
-            {departure_time} - {return_time}
-          </p>
+      <div className="row mx-0 border-top pt-2">
+        <div className="col-1">
+          <b>{journey_id}</b>
+        </div>
+        <div className="col-3">{departure_time}</div>
+        <div className="col-3">{return_time}</div>
+        <div className="col-2">Distance</div>
+        <div className="col-2">Duration</div>
+        <div className="col-1">
           <Link
             type="button"
             className="btn btn-dark"
