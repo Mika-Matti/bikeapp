@@ -5,7 +5,13 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
+    page: 1,
     journeys: [],
+  };
+
+  setPage = (p) => {
+    console.log("moro");
+    this.setState({ page: p });
   };
 
   componentDidMount() {
@@ -16,7 +22,7 @@ export class Provider extends Component {
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <Context.Provider value={{ state: this.state, setPage: this.setPage }}>
         {this.props.children}
       </Context.Provider>
     );

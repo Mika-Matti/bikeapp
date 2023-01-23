@@ -26,7 +26,9 @@ export default class Journeys extends Component {
     return (
       <Consumer>
         {(value) => {
-          const { journeys } = value;
+          const { state, setPage } = value;
+          const { page, journeys } = state;
+
           return (
             <div className="container-fluid mb-2">
               {/* header */}
@@ -66,6 +68,15 @@ export default class Journeys extends Component {
               {journeys.map((journey) => (
                 <Journeynode key={journey.journey_id} journey={journey} />
               ))}
+              <div className="my-2">
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  onClick={() => setPage(page + 1)}
+                >
+                  Current page: {page}
+                </button>
+              </div>
             </div>
           );
         }}
