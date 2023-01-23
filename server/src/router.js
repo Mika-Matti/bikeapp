@@ -40,8 +40,9 @@ router.get("/", function (req, res) {
  */
 router.get("/:table/page/:number", (req, res) => {
   const table = req.params.table;
-  const page = req.params.number;
   const limit = 25;
+  const page = req.params.number < 0 ? 0 : req.params.number;
+
   const fromRow = page * limit;
   con.query(
     `SELECT * FROM ${table} LIMIT ${fromRow},${limit}`,

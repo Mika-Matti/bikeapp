@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
 import Journeynode from "./Journeynode";
+import { Link } from "react-router-dom";
 
 export default class Journeys extends Component {
   constructor() {
@@ -28,6 +29,11 @@ export default class Journeys extends Component {
         {(value) => {
           const { state, setPage } = value;
           const { page, journeys } = state;
+
+          const { number } = this.props.match.params;
+          if (number != page + 1) {
+            setPage(number - 1);
+          }
 
           return (
             <div className="container-fluid mb-2">
@@ -70,26 +76,35 @@ export default class Journeys extends Component {
               ))}
               <div className="row my-2">
                 <div className="col">
-                  <button
-                    type="button"
-                    className="btn btn-dark"
-                    onClick={() => setPage(page - 1)}
-                    disabled={page === 0}
-                  >
-                    Previous page : {page}
-                  </button>
+                  {page > 0 ? (
+                    <Link
+                      type="button"
+                      className="btn btn-dark"
+                      to={`/journeys/page/${page}`}
+                    >
+                      Previous page : {page}
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-dark"
+                      disabled={true}
+                    >
+                      Previous page
+                    </button>
+                  )}
                 </div>
                 <div className="col">
                   <b>{page + 1}</b>
                 </div>
                 <div className="col">
-                  <button
+                  <Link
                     type="button"
                     className="btn btn-dark"
-                    onClick={() => setPage(page + 1)}
+                    to={`/journeys/page/${page + 2}`}
                   >
                     Next page: {page + 2}
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
