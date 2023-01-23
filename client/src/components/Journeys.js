@@ -28,7 +28,7 @@ export default class Journeys extends Component {
         {(value) => {
           const { journeys } = value;
           return (
-            <div className="container">
+            <div className="container-fluid">
               {/* header */}
               <h1 className="my-3 text-left">Journeys</h1>
               {/* column headers for rows*/}

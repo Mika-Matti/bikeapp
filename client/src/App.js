@@ -14,7 +14,7 @@ function App() {
       <Router>
         <div className="App">
           <Header title="bikeApp" />
-          <div className="container">
+          <div className="container-fluid">
             <Switch>
               <Route exact path="/" component={Journeys} />
               <Route exact path="/journeys/:id" component={Journeypage} />

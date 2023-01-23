@@ -45,7 +45,7 @@ export default class Journeynode extends Component {
             <div className="col-sm-4 col-md-2">{journey_duration}</div>
           </div>
         </div>
-        <div className="col-2 text-left">
+        <div className="col-2">
           <Link
             type="button"
             className="btn btn-dark"
