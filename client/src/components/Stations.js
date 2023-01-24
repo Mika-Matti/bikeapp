@@ -42,16 +42,16 @@ export default class Stations extends Component {
                 </div>
                 <div className="col-9 px-0 text-left">
                   <div className="row mx-0">
-                    <div className="col-sm-4 col-md-4 ">
+                    <div className="col-sm-6 col-md-4 ">
                       <b>Station</b>
                     </div>
-                    <div className="col-sm-4 col-md-4 ">
+                    <div className="col-sm-6 col-md-4 ">
                       <b>Address</b>
                     </div>
-                    <div className="col-sm-2 col-md-2">
+                    <div className="col-sm-6 col-md-2">
                       <b>Journeys started</b>
                     </div>
-                    <div className="col-sm-2 col-md-2">
+                    <div className="col-sm-6 col-md-2">
                       <b>Journeys ended</b>
                     </div>
                   </div>

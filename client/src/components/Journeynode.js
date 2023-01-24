@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 export default class Journeynode extends Component {
   parseDate = (date) => {
@@ -14,9 +13,7 @@ export default class Journeynode extends Component {
       journey_id,
       departure_time,
       return_time,
-      departure_station_id,
       departure_station_name,
-      return_station_id,
       return_station_name,
       journey_distance,
       journey_duration,
@@ -27,7 +24,7 @@ export default class Journeynode extends Component {
         <div className="col-1 text-left">
           <b>{journey_id}</b>
         </div>
-        <div className="col-9 px-0 text-left">
+        <div className="col-11 px-0 text-left">
           <div className="row mx-0">
             <div className="col-sm-4 col-md-2">
               {this.parseDate(departure_time)}
@@ -44,15 +41,6 @@ export default class Journeynode extends Component {
             <div className="col-sm-4 col-md-2">{journey_distance}</div>
             <div className="col-sm-4 col-md-2">{journey_duration}</div>
           </div>
-        </div>
-        <div className="col-2">
-          <Link
-            type="button"
-            className="btn btn-dark"
-            to={`/journeys/${journey_id}`}
-          >
-            Details
-          </Link>
         </div>
       </div>
     );

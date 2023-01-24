@@ -43,7 +43,7 @@ export default class Journeys extends Component {
                 <div className="col-1 text-left">
                   <b>#</b>
                 </div>
-                <div className="col-9 px-0 text-left">
+                <div className="col-11 px-0 text-left">
                   <div className="row mx-0">
                     <div className="col-sm-4 col-md-2 ">
                       <b>Departed</b>
@@ -64,9 +64,6 @@ export default class Journeys extends Component {
                       <b>Duration {"(seconds)"}</b>
                     </div>
                   </div>
-                </div>
-                <div className="col-2 text-left">
-                  <b>More</b>
                 </div>
               </div>
               {/* rows made of item nodes */}
