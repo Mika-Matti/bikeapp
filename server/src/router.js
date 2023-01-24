@@ -66,13 +66,23 @@ router.get("/:table/page/:number", (req, res) => {
   }
 });
 
-// Add item to table
-//TODO
-
-// Update item in table
-//TODO
-
-// Delete item from table
-//TODO
+/**
+ * Get singular item with full details by id
+ */
+router.get("/:table/:number", (req, res) => {
+  const table = req.params.table;
+  const id = req.params.number < 0 ? 0 : req.params.number;
+  let idColumn = "";
+  if (table === "stations") {
+    idColumn = "station_fid";
+  }
+  con.query(
+    `select * FROM ${table} WHERE ${idColumn}=${id}`,
+    function (error, results) {
+      if (error) throw error;
+      res.json(results);
+    }
+  );
+});
 
 module.exports = router;
