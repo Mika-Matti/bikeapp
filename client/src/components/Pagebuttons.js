@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default class Pagebuttons extends Component {
   render() {
-    const { page, tableName } = this.props.value;
+    const { page, tableName, pageLength } = this.props.value;
     return (
       <div className="row my-2">
         <div className="col">
@@ -25,13 +25,19 @@ export default class Pagebuttons extends Component {
           <b>{page + 1}</b>
         </div>
         <div className="col">
-          <Link
-            type="button"
-            className="btn btn-dark"
-            to={`/${tableName}/page/${page + 2}`}
-          >
-            Next page: {page + 2}
-          </Link>
+          {pageLength < 25 ? (
+            <button type="button" className="btn btn-dark" disabled={true}>
+              Next page
+            </button>
+          ) : (
+            <Link
+              type="button"
+              className="btn btn-dark"
+              to={`/${tableName}/page/${page + 2}`}
+            >
+              Next page: {page + 2}
+            </Link>
+          )}
         </div>
       </div>
     );

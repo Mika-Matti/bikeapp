@@ -64,7 +64,13 @@ export default class Stations extends Component {
               {items.map((station) => (
                 <Stationnode key={station.station_fid} station={station} />
               ))}
-              <Pagebuttons value={{ page: page, tableName: "stations" }} />
+              <Pagebuttons
+                value={{
+                  page: page,
+                  tableName: "stations",
+                  pageLength: items.length,
+                }}
+              />
             </div>
           );
         }}

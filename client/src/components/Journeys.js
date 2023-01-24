@@ -30,7 +30,6 @@ export default class Journeys extends Component {
           const { state, setPage } = value;
           const { page, items } = state;
           const { number } = this.props.match.params;
-          console.log(value);
           if (Number(number) !== page + 1 || items.length === 0) {
             setPage("journeys", number - 1);
           }
@@ -74,7 +73,13 @@ export default class Journeys extends Component {
               {items.map((journey) => (
                 <Journeynode key={journey.journey_id} journey={journey} />
               ))}
-              <Pagebuttons value={{ page: page, tableName: "journeys" }} />
+              <Pagebuttons
+                value={{
+                  page: page,
+                  tableName: "journeys",
+                  pageLength: items.length,
+                }}
+              />
             </div>
           );
         }}

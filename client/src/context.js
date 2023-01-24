@@ -15,13 +15,6 @@ export class Provider extends Component {
       .then((res) => this.setState({ page: pageNum, items: res.data }));
   };
 
-  // //fetch 25 journeys depending on page number.
-  // componentDidMount() {
-  //   axios
-  //     .get(`http://localhost:8080/journeys/page/0`)
-  //     .then((res) => this.setState({ page: 0, items: res.data }));
-  // }
-
   render() {
     return (
       <Context.Provider value={{ state: this.state, setPage: this.setPage }}>
