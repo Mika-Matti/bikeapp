@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
 import Journeynode from "./Journeynode";
-import { Link } from "react-router-dom";
+import Pagebuttons from "./Pagebuttons";
 
 export default class Journeys extends Component {
   constructor() {
@@ -74,39 +74,7 @@ export default class Journeys extends Component {
               {journeys.map((journey) => (
                 <Journeynode key={journey.journey_id} journey={journey} />
               ))}
-              <div className="row my-2">
-                <div className="col">
-                  {page > 0 ? (
-                    <Link
-                      type="button"
-                      className="btn btn-dark"
-                      to={`/journeys/page/${page}`}
-                    >
-                      Previous page : {page}
-                    </Link>
-                  ) : (
-                    <button
-                      type="button"
-                      className="btn btn-dark"
-                      disabled={true}
-                    >
-                      Previous page
-                    </button>
-                  )}
-                </div>
-                <div className="col">
-                  <b>{page + 1}</b>
-                </div>
-                <div className="col">
-                  <Link
-                    type="button"
-                    className="btn btn-dark"
-                    to={`/journeys/page/${page + 2}`}
-                  >
-                    Next page: {page + 2}
-                  </Link>
-                </div>
-              </div>
+              <Pagebuttons value={{ page: page, tableName: "journeys" }} />
             </div>
           );
         }}
