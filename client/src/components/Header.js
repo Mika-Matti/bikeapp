@@ -29,6 +29,12 @@ const Header = (props) => {
               </a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="/stations/page/1">
+                Stations
+                <span className="sr-only">(current)</span>
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/about">
                 About
               </a>

@@ -11,6 +11,7 @@ import { Provider } from "./context";
 import Header from "./components/Header";
 import Journeys from "./components/Journeys";
 import Journeypage from "./components/Journeypage";
+import Stations from "./components/Stations";
 import About from "./components/pages/About";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               </Route>
               <Route exact path="/journeys/page/:number" component={Journeys} />
               <Route exact path="/journeys/:id" component={Journeypage} />
+              <Route exact path="/stations/page/1" component={Stations} />
               <Route exact path="/about" component={About} />
             </Switch>
           </div>

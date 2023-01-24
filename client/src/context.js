@@ -15,7 +15,7 @@ export class Provider extends Component {
       .then((res) => this.setState({ page: p, journeys: res.data }));
   };
 
-  //TODO fetch 25 journeys depending on page number.
+  //fetch 25 journeys depending on page number.
   componentDidMount() {
     axios
       .get(`http://localhost:8080/journeys/page/0`)
