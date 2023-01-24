@@ -42,15 +42,28 @@ router.get("/:table/page/:number", (req, res) => {
   const table = req.params.table;
   const limit = 25;
   const page = req.params.number < 0 ? 0 : req.params.number;
-
   const fromRow = page * limit;
-  con.query(
-    `SELECT * FROM ${table} LIMIT ${fromRow},${limit}`,
-    function (error, results) {
-      if (error) throw error;
-      res.json(results);
-    }
-  );
+
+  if (table === "stations") {
+    con.query(
+      `SELECT stations.station_id, stations.station_nimi, stations.station_osoite,
+      (SELECT COUNT(*) FROM journeys WHERE journeys.departure_station_id = stations.station_id) AS departed,
+      (SELECT COUNT(*) FROM journeys WHERE journeys.return_station_id = stations.station_id) AS returned
+      FROM stations LIMIT ${fromRow}, ${limit}`,
+      function (error, results) {
+        if (error) throw error;
+        res.json(results);
+      }
+    );
+  } else {
+    con.query(
+      `SELECT * FROM ${table} LIMIT ${fromRow},${limit}`,
+      function (error, results) {
+        if (error) throw error;
+        res.json(results);
+      }
+    );
+  }
 });
 
 // Add item to table
