@@ -23,11 +23,11 @@ function App() {
           <div className="container-fluid">
             <Switch>
               <Route exact path="/">
-                <Redirect to="/journeys/page/1" />
+                <Redirect to={`/journeys/page/1`} />
               </Route>
               <Route exact path="/journeys/page/:number" component={Journeys} />
               <Route exact path="/journeys/:id" component={Journeypage} />
-              <Route exact path="/stations/page/1" component={Stations} />
+              <Route exact path="/stations/page/:number" component={Stations} />
               <Route exact path="/about" component={About} />
             </Switch>
           </div>

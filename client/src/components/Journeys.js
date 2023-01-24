@@ -28,11 +28,11 @@ export default class Journeys extends Component {
       <Consumer>
         {(value) => {
           const { state, setPage } = value;
-          const { page, journeys } = state;
-
+          const { page, items } = state;
           const { number } = this.props.match.params;
-          if (Number(number) !== page + 1) {
-            setPage(number - 1);
+          console.log(value);
+          if (Number(number) !== page + 1 || items.length === 0) {
+            setPage("journeys", number - 1);
           }
 
           return (
@@ -71,7 +71,7 @@ export default class Journeys extends Component {
                 </div>
               </div>
               {/* rows made of item nodes */}
-              {journeys.map((journey) => (
+              {items.map((journey) => (
                 <Journeynode key={journey.journey_id} journey={journey} />
               ))}
               <Pagebuttons value={{ page: page, tableName: "journeys" }} />

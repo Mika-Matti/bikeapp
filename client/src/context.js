@@ -6,21 +6,21 @@ const Context = React.createContext();
 export class Provider extends Component {
   state = {
     page: 0,
-    journeys: [],
+    items: [],
   };
 
-  setPage = (p) => {
+  setPage = (pageName, pageNum) => {
     axios
-      .get(`http://localhost:8080/journeys/page/${p}`)
-      .then((res) => this.setState({ page: p, journeys: res.data }));
+      .get(`http://localhost:8080/${pageName}/page/${pageNum}`)
+      .then((res) => this.setState({ page: pageNum, items: res.data }));
   };
 
-  //fetch 25 journeys depending on page number.
-  componentDidMount() {
-    axios
-      .get(`http://localhost:8080/journeys/page/0`)
-      .then((res) => this.setState({ journeys: res.data }));
-  }
+  // //fetch 25 journeys depending on page number.
+  // componentDidMount() {
+  //   axios
+  //     .get(`http://localhost:8080/journeys/page/0`)
+  //     .then((res) => this.setState({ page: 0, items: res.data }));
+  // }
 
   render() {
     return (

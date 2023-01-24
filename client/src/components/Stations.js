@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
+import Stationnode from "./Stationnode";
+import Pagebuttons from "./Pagebuttons";
 
 export default class Stations extends Component {
   constructor() {
@@ -8,14 +10,10 @@ export default class Stations extends Component {
       stations: [
         {
           station_fid: 0,
-          station_id: 0,
           station_nimi: "",
           station_osoite: "",
-          station_kaupunki: "",
-          station_operator: "",
-          station_capacity: "",
-          station_x: 0,
-          station_y: 0,
+          departed: 0,
+          returned: 0,
         },
       ],
     };
@@ -25,6 +23,14 @@ export default class Stations extends Component {
     return (
       <Consumer>
         {(value) => {
+          const { state, setPage } = value;
+          const { page, items } = state;
+          const { number } = this.props.match.params;
+
+          if (Number(number) !== page + 1 || items.length === 0) {
+            setPage("stations", number - 1);
+          }
+
           return (
             <div className="container-fluid mb-2">
               {/* header */}
@@ -55,6 +61,10 @@ export default class Stations extends Component {
                 </div>
               </div>
               {/* rows made of item nodes */}
+              {items.map((station) => (
+                <Stationnode key={station.station_fid} station={station} />
+              ))}
+              <Pagebuttons value={{ page: page, tableName: "stations" }} />
             </div>
           );
         }}
