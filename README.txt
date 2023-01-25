@@ -16,7 +16,6 @@ npm install, if you haven't already.
 
 2. Open client folder in another terminal and either run the client with npm start or use the deployed build with command serve -s build.
 
-<<<<<<< HEAD
 3. If everything is up and running, you may now test the application in localhost:3000.
 
 ABOUT THE PROJECT:
@@ -40,6 +39,3 @@ My project implements the following functionalities:
  - Display station name, address, journeys starting from the station and journeys ending at the station in rows
 4. Single station view
  - Display station name, address, journeys starting from the station and journeys ending at the station.
-=======
-3. If everything is up and running, you may now test the application in localhost:3000.
->>>>>>> parent of 7714599... Create new shorter script to generate database with .csv files
