@@ -38,8 +38,12 @@ export default class Journeynode extends Component {
             <div className="col-sm-4 col-md-2 text-break">
               {return_station_name}
             </div>
-            <div className="col-sm-4 col-md-2">{journey_distance}</div>
-            <div className="col-sm-4 col-md-2">{journey_duration}</div>
+            <div className="col-sm-4 col-md-2">
+              {(journey_distance / 1000).toFixed(3)}
+            </div>
+            <div className="col-sm-4 col-md-2">
+              {(journey_duration / 60).toFixed(1)}
+            </div>
           </div>
         </div>
       </div>

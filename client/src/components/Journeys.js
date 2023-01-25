@@ -58,10 +58,10 @@ export default class Journeys extends Component {
                       <b>Return station</b>
                     </div>
                     <div className="col-sm-4 col-md-2">
-                      <b>Distance {"(meters)"}</b>
+                      <b>Distance {"(Kilometers)"}</b>
                     </div>
                     <div className="col-sm-4 col-md-2">
-                      <b>Duration {"(seconds)"}</b>
+                      <b>Duration {"(minutes)"}</b>
                     </div>
                   </div>
                 </div>
