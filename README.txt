@@ -4,7 +4,7 @@ Made with React.js, node.js and mySQL.
 
 Setup:
 
-1. create and import mySQL database by running the script generateBikeAppDataBaseWithImportedData.SQL from
+1. create and import mySQL database by running the script generateBikeAppDataBaseWithData.SQL from
 SQL-scripts folder found in the root folder of the bikeapp project.
 
 2. In root folder, navigate to server -> src -> and edit router.js by changing the credentials to connect to database.
